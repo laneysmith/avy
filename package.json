@@ -1,16 +1,16 @@
 {
-  "name": "avy-app",
+  "name": "avy",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/laneysmith/avy-app#readme",
+  "homepage": "https://github.com/laneysmith/avy#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/laneysmith/avy-app.git"
+    "url": "git+https://github.com/laneysmith/avy.git"
   },
   "author": "Laney Smith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/laneysmith/avy-app/issues"
+    "url": "https://github.com/laneysmith/avy/issues"
   },
   "keywords": [],
   "browserslist": [

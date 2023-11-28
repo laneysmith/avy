@@ -15,7 +15,7 @@ export default defineConfig((configEnv) => {
         manifest: {
           name: "Avalanche Safety Handbook",
           short_name: "AvyApp",
-          description: "Avalanche Safety Handbook",
+          description: "Avy Handbook",
           theme_color: "#ffffff",
           icons: [
             {
