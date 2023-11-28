@@ -11,6 +11,25 @@ export default defineConfig((configEnv) => {
       react(),
       VitePWA({
         registerType: "autoUpdate",
+        includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.png"],
+        manifest: {
+          name: "Avalanche Safety Handbook",
+          short_name: "AvyApp",
+          description: "Avalanche Safety Handbook",
+          theme_color: "#ffffff",
+          icons: [
+            {
+              src: "android-chrome-192x192.png",
+              sizes: "192x192",
+              type: "image/png",
+            },
+            {
+              src: "android-chrome-512x512.png",
+              sizes: "512x512",
+              type: "image/png",
+            },
+          ],
+        },
       }),
     ],
     resolve: {
