@@ -14,7 +14,7 @@ export default defineConfig((configEnv) => {
         includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.png"],
         manifest: {
           name: "Avalanche Safety Handbook",
-          short_name: "AvyApp",
+          short_name: "Avy App",
           description: "Avy Handbook",
           theme_color: "#ffffff",
           icons: [
@@ -36,6 +36,7 @@ export default defineConfig((configEnv) => {
       alias: {
         app: resolve(__dirname, "src", "app"),
         components: resolve(__dirname, "src", "components"),
+        lib: resolve(__dirname, "src", "lib"),
         hooks: resolve(__dirname, "src", "hooks"),
       },
     },

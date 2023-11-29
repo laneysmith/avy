@@ -1,7 +1,0 @@
-.disclosureButton {
-  @apply flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-indigo-600 to-ice-blue px-4 py-2 text-left text-xl font-extrabold tracking-wide text-white hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75;
-}
-
-.tabPanel {
-  @apply grid gap-3 rounded-xl bg-blue-900/20 p-3 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none;
-}
