@@ -11,6 +11,10 @@ h3 {
   @apply text-xl font-bold tracking-wide;
 }
 
+h4 {
+  @apply text-lg font-medium;
+}
+
 .main {
   @apply container mx-auto my-2 min-h-screen max-w-xl px-2 sm:my-0 sm:px-0;
 }

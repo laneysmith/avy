@@ -5,17 +5,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "components/ui/accordion";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "components/ui/tabs";
 
-import BeaconCheck from "./ride/beacon-check";
 import Todo from "./todo";
+import DepartureCheck from "./ride/01-departure-check";
+import { Monitor } from "lucide-react";
 
 enum Section {
   Plan = "Plan",
@@ -50,15 +45,11 @@ const sections: Record<Section, SubSection[]> = {
   [Section.Ride]: [
     {
       title: "Conduct a Departure Check",
-      component: <Todo />,
-    },
-    {
-      title: "D.B.E.S.T. Beacon Check",
-      component: <BeaconCheck />,
+      component: <DepartureCheck />,
     },
     {
       title: "Monitor Conditions Along Your Route",
-      component: <Todo />,
+      component: <Monitor />,
     },
     {
       title: "Check In With The Group",
@@ -106,7 +97,6 @@ const TabNav = (): JSX.Element => {
             <Card>
               <CardHeader>
                 <CardTitle>{key}</CardTitle>
-                <CardDescription>Card Description</CardDescription>
               </CardHeader>
               {value.map((item) => (
                 <CardContent key={item.title}>
