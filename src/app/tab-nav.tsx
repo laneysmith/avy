@@ -8,9 +8,11 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "components/ui/tabs";
 
-import Todo from "./todo";
-import DepartureCheck from "./ride/01-departure-check";
-import { Monitor } from "lucide-react";
+import Todo from "app/todo";
+import DepartureCheck from "app/ride/01-departure-check";
+import MonitorConditions from "app/ride/02-monitor-conditions";
+import CheckIn from "app/ride/03-check-in";
+import RecognizeAvalancheTerrain from "app/ride/04-recognize-avalanche-terrain";
 
 enum Section {
   Plan = "Plan",
@@ -30,7 +32,7 @@ const sections: Record<Section, SubSection[]> = {
       component: <Todo />,
     },
     {
-      title: "Anticipate The Hazard..",
+      title: "Anticipate The Hazard",
       component: <Todo />,
     },
     {
@@ -49,15 +51,15 @@ const sections: Record<Section, SubSection[]> = {
     },
     {
       title: "Monitor Conditions Along Your Route",
-      component: <Monitor />,
+      component: <MonitorConditions />,
     },
     {
       title: "Check In With The Group",
-      component: <Todo />,
+      component: <CheckIn />,
     },
     {
       title: "Recognize Avalanche Terrain",
-      component: <Todo />,
+      component: <RecognizeAvalancheTerrain />,
     },
     {
       title: "Use Terrain To Reduce Your Risk",
