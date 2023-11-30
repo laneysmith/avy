@@ -32,7 +32,7 @@ const Checklist = ({ items, className }: ChecklistProps): JSX.Element => {
     <ol className={className}>
       {items.map((item) => {
         return (
-          <li key={item.id} className="py-3">
+          <li key={item.id}>
             <ChecklistItem
               item={item}
               checkedIds={checkedIds}
@@ -66,7 +66,7 @@ const ChecklistItem = ({
   );
 
   return (
-    <label className="items-top flex cursor-pointer space-x-2">
+    <label className="items-top flex cursor-pointer space-x-2 py-3">
       <Checkbox
         id={id}
         checked={isChecked}
