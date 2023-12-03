@@ -33,6 +33,14 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --font-size-sm: 0.8rem;
+    --font-size-base: 1rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.563rem;
+    --font-size-3xl: 1.953rem;
+    --font-size-4xl: 2.441rem;
+    --font-size-5xl: 3.052rem;
   }
 
   .dark {
@@ -63,6 +71,16 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+  }
+
+  .font-size-big {
+    --font-size-sm: 1rem;
+    --font-size-base: 1.25rem;
+    --font-size-xl: 1.563rem;
+    --font-size-2xl: 1.953rem;
+    --font-size-3xl: 2.441rem;
+    --font-size-4xl: 3.052rem;
+    --font-size-5xl: 3.052rem;
   }
 }
 

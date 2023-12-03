@@ -5,9 +5,9 @@ import TabNav from "./tab-nav";
 
 const App = (): JSX.Element => {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="avy-app-ui-theme">
+    <ThemeProvider>
       <main className={styles.main}>
-        <header className="my-2 flex w-full justify-between">
+        <header className="my-2 flex w-full items-center justify-between">
           <h1 className="inline-block">Avy Handbook</h1>
           <ModeToggle />
         </header>

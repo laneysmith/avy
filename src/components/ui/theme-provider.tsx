@@ -1,58 +1,76 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+const THEME_STORAGE_KEY = "avy-app-ui-theme";
+const TEXT_SIZE_STORAGE_KEY = "avy-app-text-size";
+
 type Theme = "dark" | "light" | "system";
+type BaseFontSize = "font-size-normal" | "font-size-big";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
-  defaultTheme?: Theme;
-  storageKey?: string;
 };
 
 type ThemeProviderState = {
   theme: Theme;
-  setTheme: (theme: Theme) => void;
+  baseFontSize: BaseFontSize;
+  toggleTheme: () => void;
+  toggleBaseFontSize: () => void;
 };
 
 const initialState: ThemeProviderState = {
-  theme: "system",
-  setTheme: () => null,
+  theme: "dark",
+  baseFontSize: "font-size-normal",
+  toggleTheme: () => null,
+  toggleBaseFontSize: () => null,
 };
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
-export function ThemeProvider({
-  children,
-  defaultTheme = "system",
-  storageKey = "vite-ui-theme",
-  ...props
-}: ThemeProviderProps) {
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
   const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+    () => (localStorage.getItem(THEME_STORAGE_KEY) as Theme) || systemTheme
+  );
+  const [baseFontSize, setBaseFontSize] = useState<BaseFontSize>(
+    () =>
+      (localStorage.getItem(TEXT_SIZE_STORAGE_KEY) as BaseFontSize) || "normal"
   );
 
   useEffect(() => {
     const root = window.document.documentElement;
-
     root.classList.remove("light", "dark");
-
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
-
-      root.classList.add(systemTheme);
-      return;
-    }
-
     root.classList.add(theme);
   }, [theme]);
 
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.classList.remove("font-size-big");
+    if (baseFontSize === "font-size-big") {
+      root.classList.add("font-size-big");
+    }
+  }, [baseFontSize]);
+
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
+    toggleTheme: () => {
+      setTheme((prevTheme) => {
+        const nextTheme = prevTheme === "dark" ? "light" : "dark";
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+        return nextTheme;
+      });
+    },
+    baseFontSize,
+    toggleBaseFontSize: () => {
+      setBaseFontSize((prevSize) => {
+        const nextSize =
+          prevSize === "font-size-normal"
+            ? "font-size-big"
+            : "font-size-normal";
+        localStorage.setItem(TEXT_SIZE_STORAGE_KEY, nextSize);
+        return nextSize;
+      });
     },
   };
 
