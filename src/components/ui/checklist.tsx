@@ -66,7 +66,7 @@ const ChecklistItem = ({
   );
 
   return (
-    <label className="items-top flex cursor-pointer space-x-2 py-3">
+    <label className="items-top flex cursor-pointer space-x-2 py-2">
       <Checkbox
         id={id}
         checked={isChecked}
