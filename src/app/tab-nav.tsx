@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -7,121 +6,39 @@ import {
 } from "components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "components/ui/tabs";
-
-import Todo from "app/todo";
-import DepartureCheck from "app/ride/01-departure-check";
-import MonitorConditions from "app/ride/02-monitor-conditions";
-import CheckIn from "app/ride/03-check-in";
-import RecognizeAvalancheTerrain from "app/ride/04-recognize-avalanche-terrain";
-
-enum Section {
-  Plan = "Plan",
-  Ride = "Ride",
-  Debrief = "Debrief",
-}
-
-interface SubSection {
-  title: string;
-  description?: string;
-  component: ReactNode;
-}
-
-const sections: Record<Section, SubSection[]> = {
-  [Section.Plan]: [
-    {
-      title: "Assemble Your Group",
-      component: <Todo />,
-    },
-    {
-      title: "Anticipate The Hazard",
-      component: <Todo />,
-    },
-    {
-      title: "Plan to Manage Avalanche Terrain",
-      component: <Todo />,
-    },
-    {
-      title: "Discuss an Emergency Plan.",
-      component: <Todo />,
-    },
-  ],
-  [Section.Ride]: [
-    {
-      title: "Conduct a Departure Check",
-      component: <DepartureCheck />,
-    },
-    {
-      title: "Monitor Conditions Along Your Route",
-      description: "Alert Group To Unstable Conditions",
-      component: <MonitorConditions />,
-    },
-    {
-      title: "Check In With The Group",
-      description: "Reassess Your Plan",
-      component: <CheckIn />,
-    },
-    {
-      title: "Recognize Avalanche Terrain",
-      description: "Assess Consequences",
-      component: <RecognizeAvalancheTerrain />,
-    },
-    {
-      title: "Use Terrain To Reduce Your Risk",
-      description: "Manage The Group",
-      component: <Todo />,
-    },
-  ],
-  [Section.Debrief]: [
-    {
-      title: "Summarize Conditions",
-      component: <Todo />,
-    },
-    {
-      title: "Review Today’s Decisions",
-      component: <Todo />,
-    },
-    {
-      title: "Improve Today’s Plans",
-      component: <Todo />,
-    },
-  ],
-};
+import { Section, SECTIONS_MAP } from "app/sections";
 
 const TabNav = (): JSX.Element => {
   return (
     <div className="w-full sm:px-0">
       <Tabs defaultValue={Section.Plan} className="w-full">
         <TabsList className="grid w-full grid-cols-3">
-          {Object.keys(sections).map((key) => (
-            <TabsTrigger key={key} value={key}>
-              {key}
+          {Object.keys(SECTIONS_MAP).map((section) => (
+            <TabsTrigger key={section} value={section}>
+              {section}
             </TabsTrigger>
           ))}
         </TabsList>
 
-        {Object.entries(sections).map(([key, value]) => (
-          <TabsContent key={`${key}-panel`} value={key}>
+        {Object.entries(SECTIONS_MAP).map(([section, contents]) => (
+          <TabsContent key={`${section}-panel`} value={section}>
             <Card>
               <CardHeader>
-                <CardTitle>{key}</CardTitle>
+                <CardTitle>{section}</CardTitle>
               </CardHeader>
-              {value.map((item) => (
-                <CardContent key={item.title}>
-                  <Accordion
-                    key={`${key}-${item.title}-panel`}
-                    type="single"
-                    collapsible
-                  >
+              {contents.map(({ title, description, component }) => (
+                <CardContent key={title}>
+                  <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
                       <AccordionTrigger>
-                        <div>{item.title}</div>
-                        {item.description && (
+                        <div>{title}</div>
+                        {description && (
                           <div className="mt-2 text-sm text-muted-foreground">
-                            {item.description}
+                            {description}
                           </div>
                         )}
                       </AccordionTrigger>
-                      <AccordionContent>{item.component}</AccordionContent>
+                      <AccordionContent>{component}</AccordionContent>
                     </AccordionItem>
                   </Accordion>
                 </CardContent>
