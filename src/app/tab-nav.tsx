@@ -22,6 +22,7 @@ enum Section {
 
 interface SubSection {
   title: string;
+  description?: string;
   component: ReactNode;
 }
 
@@ -51,18 +52,22 @@ const sections: Record<Section, SubSection[]> = {
     },
     {
       title: "Monitor Conditions Along Your Route",
+      description: "Alert Group To Unstable Conditions",
       component: <MonitorConditions />,
     },
     {
       title: "Check In With The Group",
+      description: "Reassess Your Plan",
       component: <CheckIn />,
     },
     {
       title: "Recognize Avalanche Terrain",
+      description: "Assess Consequences",
       component: <RecognizeAvalancheTerrain />,
     },
     {
       title: "Use Terrain To Reduce Your Risk",
+      description: "Manage The Group",
       component: <Todo />,
     },
   ],
@@ -108,7 +113,14 @@ const TabNav = (): JSX.Element => {
                     collapsible
                   >
                     <AccordionItem value="item-1">
-                      <AccordionTrigger>{item.title}</AccordionTrigger>
+                      <AccordionTrigger>
+                        <div>{item.title}</div>
+                        {item.description && (
+                          <div className="mt-2 text-sm text-muted-foreground">
+                            {item.description}
+                          </div>
+                        )}
+                      </AccordionTrigger>
                       <AccordionContent>{item.component}</AccordionContent>
                     </AccordionItem>
                   </Accordion>
