@@ -35,7 +35,8 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   );
   const [baseFontSize, setBaseFontSize] = useState<BaseFontSize>(
     () =>
-      (localStorage.getItem(TEXT_SIZE_STORAGE_KEY) as BaseFontSize) || "normal"
+      (localStorage.getItem(TEXT_SIZE_STORAGE_KEY) as BaseFontSize) ||
+      "font-size-normal"
   );
 
   useEffect(() => {
@@ -46,10 +47,8 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove("font-size-big");
-    if (baseFontSize === "font-size-big") {
-      root.classList.add("font-size-big");
-    }
+    root.classList.remove("font-size-normal", "font-size-big");
+    root.classList.add(baseFontSize);
   }, [baseFontSize]);
 
   const value = {
