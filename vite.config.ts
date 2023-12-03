@@ -38,6 +38,7 @@ export default defineConfig((configEnv) => {
         components: resolve(__dirname, "src", "components"),
         lib: resolve(__dirname, "src", "lib"),
         hooks: resolve(__dirname, "src", "hooks"),
+        infrastructure: resolve(__dirname, "src", "infrastructure"),
       },
     },
     css: {

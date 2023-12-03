@@ -1,11 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ModeToggle } from "components/ui/mode-toggle";
-import { ThemeProvider } from "./theme-provider";
-
-const wrapper = ({ children }: { children: React.ReactElement }) => (
-  <ThemeProvider>{children}</ThemeProvider>
-);
+import { wrapper } from "infrastructure/tests/wrappers";
 
 describe("ModeToggle test", () => {
   test("should toggle the theme class on the root element", async () => {

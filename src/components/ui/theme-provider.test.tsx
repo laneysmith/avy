@@ -1,14 +1,10 @@
 import { renderHook, act } from "@testing-library/react";
 import {
-  ThemeProvider,
   useTheme,
   THEME_STORAGE_KEY,
   TEXT_SIZE_STORAGE_KEY,
-} from "./theme-provider";
-
-const wrapper = ({ children }: { children: React.ReactElement }) => (
-  <ThemeProvider>{children}</ThemeProvider>
-);
+} from "components/ui/theme-provider";
+import { wrapper } from "infrastructure/tests/wrappers";
 
 describe("ThemeProvider test", () => {
   let getItemSpy: jest.SpyInstance;
