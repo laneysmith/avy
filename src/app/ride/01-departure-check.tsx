@@ -10,6 +10,7 @@ import {
   Shovel,
   Backpack,
   Power,
+  SmartphoneNfc,
 } from "lucide-react";
 import { Checklist } from "components/ui/checklist";
 
@@ -49,7 +50,7 @@ const INDIVIDUAL_GEAR_CHECK_ITEMS = [
   {
     id: "transceiver",
     label: "Tranceiver",
-    icon: <Radio className={iconStyles} />,
+    icon: <SmartphoneNfc className={iconStyles} />,
   },
   {
     id: "shovel",
@@ -89,14 +90,14 @@ const BEACON_CHECK_ITEMS = [
     id: "search",
     label: "Search",
     description:
-      "Switch all transceivers to Search mode. Silence indicates that everyone is ready and ensures that no transmitting units are on dogs, sleds, or in packs. The leader then switches to Transmit/Send and checks that each group member can receive a signal by walking towards each individual, while the individual reads their display out loud.",
+      "Switch all transceivers to Search mode. The leader then switches to Transmit/Send and checks that each group member can receive a signal by walking towards each individual, while the individual reads their display out loud.",
     icon: <Search className={iconStyles} />,
   },
   {
     id: "transmit",
     label: "Transmit & stow",
     description:
-      "Turn all units to Transmit/Send. The check-leader witnesses that each group members stows their unit for the day, secured under an outside layer and 30 cm (~12”) from a cell phone or radio. The leader returns to Search mode and confirms all group members are transmitting. The leader then switches to Transmit/Send mode. One group member then verifies that the leader’s device is stored under an outside layer and 30 cm (~12”) from a cell phone or radio for the day.",
+      "Turn all units to Transmit/Send. The check-leader witnesses that each group members stows their unit for the day, secured under an outside layer and 30 cm (~12”) from a cell phone or radio. The leader returns to Search mode and confirms all group members are transmitting. The leader then switches to Transmit/Send mode. One group member then verifies that the leader’s device is stored under an outside layer and 30 cm (~12”) from a cell phone or radio.",
     icon: <Radio className={iconStyles} />,
   },
 ];
