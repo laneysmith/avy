@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const THEME_STORAGE_KEY = "avy-app-ui-theme";
-const TEXT_SIZE_STORAGE_KEY = "avy-app-text-size";
+export const THEME_STORAGE_KEY = "avy-app-ui-theme";
+export const TEXT_SIZE_STORAGE_KEY = "avy-app-text-size";
 
 type Theme = "dark" | "light" | "system";
 type BaseFontSize = "font-size-normal" | "font-size-big";
@@ -83,8 +83,9 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext);
 
-  if (context === undefined)
+  if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
+  }
 
   return context;
 };
