@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const THEME_STORAGE_KEY = "avy-app-ui-theme";
-export const TEXT_SIZE_STORAGE_KEY = "avy-app-text-size";
+export const FONT_SIZE_STORAGE_KEY = "avy-app-text-size";
 
 type Theme = "dark" | "light" | "system";
 type BaseFontSize = "font-size-normal" | "font-size-big";
@@ -35,7 +35,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   );
   const [baseFontSize, setBaseFontSize] = useState<BaseFontSize>(
     () =>
-      (localStorage.getItem(TEXT_SIZE_STORAGE_KEY) as BaseFontSize) ||
+      (localStorage.getItem(FONT_SIZE_STORAGE_KEY) as BaseFontSize) ||
       "font-size-normal"
   );
 
@@ -67,7 +67,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
           prevSize === "font-size-normal"
             ? "font-size-big"
             : "font-size-normal";
-        localStorage.setItem(TEXT_SIZE_STORAGE_KEY, nextSize);
+        localStorage.setItem(FONT_SIZE_STORAGE_KEY, nextSize);
         return nextSize;
       });
     },

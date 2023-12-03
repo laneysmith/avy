@@ -2,7 +2,7 @@ import { renderHook, act } from "@testing-library/react";
 import {
   useTheme,
   THEME_STORAGE_KEY,
-  TEXT_SIZE_STORAGE_KEY,
+  FONT_SIZE_STORAGE_KEY,
 } from "components/ui/theme-provider";
 import { wrapper } from "infrastructure/tests/wrappers";
 
@@ -19,8 +19,9 @@ describe("ThemeProvider test", () => {
       key: string
     ) => string | null;
     Storage.prototype.setItem = setItemSpy as unknown as (
-      key: string
-    ) => string | null;
+      key: string,
+      value: string
+    ) => void;
   });
 
   afterEach(() => {
@@ -39,8 +40,11 @@ describe("ThemeProvider test", () => {
   });
 
   test("sets theme and base font size based on previous selection when set on local storage", async () => {
-    getItemSpy.mockReturnValueOnce("dark");
-    getItemSpy.mockReturnValueOnce("font-size-big");
+    getItemSpy.mockImplementation((key) => {
+      if (key === THEME_STORAGE_KEY) return "dark";
+      if (key === FONT_SIZE_STORAGE_KEY) return "font-size-big";
+      return null;
+    });
     const { result } = renderHook(() => useTheme(), { wrapper });
 
     expect(result.current).toEqual({
@@ -82,7 +86,7 @@ describe("ThemeProvider test", () => {
 
     expect(result.current.baseFontSize).toEqual("font-size-big");
     expect(setItemSpy).toHaveBeenCalledWith(
-      TEXT_SIZE_STORAGE_KEY,
+      FONT_SIZE_STORAGE_KEY,
       "font-size-big"
     );
 
@@ -92,7 +96,7 @@ describe("ThemeProvider test", () => {
 
     expect(result.current.baseFontSize).toEqual("font-size-normal");
     expect(setItemSpy).toHaveBeenCalledWith(
-      TEXT_SIZE_STORAGE_KEY,
+      FONT_SIZE_STORAGE_KEY,
       "font-size-normal"
     );
   });
