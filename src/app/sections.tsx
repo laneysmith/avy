@@ -1,6 +1,9 @@
 import Todo from "app/todo";
 
 import AssembleYourGroup from "app/plan/01-assemble-your-group";
+import AnticipateTheHazard from "app/plan/02-anticipate-the-hazard";
+import PlanToManageAvalancheTerrain from "app/plan/03-plan-to-manage-avalanche-terrian";
+import DiscussAnEmergencyPlan from "app/plan/04-discuss-an-emergency-plan";
 
 import DepartureCheck from "app/ride/01-departure-check";
 import MonitorConditions from "app/ride/02-monitor-conditions";
@@ -31,7 +34,7 @@ export const SECTIONS_MAP: Record<Section, SubSection[]> = {
     },
     {
       title: "Plan to Manage Avalanche Terrain",
-      component: <Todo />,
+      component: <PlanToManageAvalancheTerrain />,
     },
     {
       title: "Discuss an Emergency Plan",
