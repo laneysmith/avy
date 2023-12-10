@@ -69,35 +69,35 @@ const BEACON_CHECK_ITEMS = [
     id: "display-diagnostics",
     label: "Display/diagnostics",
     description:
-      "Turn transceivers on. As they power on, each individual checks that the transceiver runs a self-check and the display is OK.",
+      "Have each individual turn their transceiver on. As it powers on, each individual should check that the transceiver runs a self-check and the display is OK.",
     icon: <Power className={iconStyles} />,
   },
   {
     id: "battery",
     label: "Battery level",
     description:
-      "They also note the battery strength and report it aloud to the group.",
+      "Have each individual note the battery strength on their transceiver and report it aloud to the group.",
     icon: <BatteryFull className={iconStyles} />,
   },
   {
     id: "electronics",
     label: "Electronics",
     description:
-      "Ensure that your transceiver will be stored 30 cm (~12”) from a cell phone or radio.",
+      "Have each individual ensure that their transceiver will be stored 30 cm (~12”) from a cell phone or radio that could interfere with its signal.",
     icon: <Smartphone className={iconStyles} />,
   },
   {
     id: "search",
     label: "Search",
     description:
-      "Switch all transceivers to Search mode. The leader then switches to Transmit/Send and checks that each group member can receive a signal by walking towards each individual, while the individual reads their display out loud.",
+      "Ask everyone to switch their transceiver to Search mode. The leader then switches to Transmit/Send and checks that each group member can receive a signal by walking towards each individual, while the individual reads their display out loud.",
     icon: <Search className={iconStyles} />,
   },
   {
     id: "transmit",
     label: "Transmit & stow",
     description:
-      "Turn all units to Transmit/Send. The check-leader witnesses that each group members stows their unit for the day, secured under an outside layer and 30 cm (~12”) from a cell phone or radio. The leader returns to Search mode and confirms all group members are transmitting. The leader then switches to Transmit/Send mode. One group member then verifies that the leader’s device is stored under an outside layer and 30 cm (~12”) from a cell phone or radio.",
+      "Ask everyone to switch their transceiver to Transmit/Send. The leader witnesses that each group member stows their unit for the day, secured under an outside layer and 30 cm (~12”) from a cell phone or radio. The leader returns to Search mode and confirms all group members are transmitting. The leader then switches to Transmit/Send mode. One group member then verifies that the leader’s device is stored under an outside layer and 30 cm (~12”) from a cell phone or radio.",
     icon: <Radio className={iconStyles} />,
   },
 ];
