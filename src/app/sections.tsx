@@ -1,4 +1,7 @@
 import Todo from "app/todo";
+
+import AssembleYourGroup from "app/plan/01-assemble-your-group";
+
 import DepartureCheck from "app/ride/01-departure-check";
 import MonitorConditions from "app/ride/02-monitor-conditions";
 import CheckIn from "app/ride/03-check-in";
@@ -20,11 +23,11 @@ export const SECTIONS_MAP: Record<Section, SubSection[]> = {
   [Section.Plan]: [
     {
       title: "Assemble Your Group",
-      component: <Todo />,
+      component: <AssembleYourGroup />,
     },
     {
       title: "Anticipate The Hazard",
-      component: <Todo />,
+      component: <AnticipateTheHazard />,
     },
     {
       title: "Plan to Manage Avalanche Terrain",
@@ -32,7 +35,7 @@ export const SECTIONS_MAP: Record<Section, SubSection[]> = {
     },
     {
       title: "Discuss an Emergency Plan",
-      component: <Todo />,
+      component: <DiscussAnEmergencyPlan />,
     },
   ],
   [Section.Ride]: [
