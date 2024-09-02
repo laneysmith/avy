@@ -1,5 +1,5 @@
 const RecognizeAvalancheTerrain = (): JSX.Element => {
-  return <></>;
+  return <>TODO</>;
 };
 
 export default RecognizeAvalancheTerrain;
