@@ -1,5 +1,5 @@
 const PlanToManageAvalancheTerrain = (): JSX.Element => {
-  return <></>;
+  return <>TODO</>;
 };
 
 export default PlanToManageAvalancheTerrain;

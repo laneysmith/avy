@@ -1,5 +1,5 @@
 const MonitorConditions = (): JSX.Element => {
-  return <></>;
+  return <>TODO</>;
 };
 
 export default MonitorConditions;

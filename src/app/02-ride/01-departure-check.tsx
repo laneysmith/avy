@@ -76,7 +76,7 @@ const BEACON_CHECK_ITEMS = [
     id: "battery",
     label: "Battery level",
     description:
-      "Have each individual note the battery strength on their transceiver and report it aloud to the group.",
+      "Have each individual report the battery strength on their transceiver out loud to the group.",
     icon: <BatteryFull className={iconStyles} />,
   },
   {

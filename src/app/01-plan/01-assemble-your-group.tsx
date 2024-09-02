@@ -14,7 +14,7 @@ const AssembleYourGroup = (): JSX.Element => {
         <ul className={listStyles}>
           <li>compatibility of goals</li>
           <li>compatibility of skills, abilities, and equipment</li>
-          <li>group size (optimal is 3-5)</li>
+          <li>group size (3-5 is optimal)</li>
           <li>compatibility of risk tolerance</li>
           <li>any health issues</li>
           <li>if all agree to travel and decide together</li>
