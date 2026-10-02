@@ -1,1 +1,5 @@
 # [Avalanche Safety Handbook](https://avy.laney.tech/) [![Netlify Status](https://api.netlify.com/api/v1/badges/e621ab93-6551-4b42-9822-7d9c53e29dc0/deploy-status)](https://app.netlify.com/sites/avy-handbook/deploys)
+
+An offline-first progressive web app for encouraging safe backcountry recreation.
+
+<img src="assets/avy-app-screenshot-portrait.png" width="350" alt="Avy App screenshot">
